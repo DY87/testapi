@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Вызов удаленного метода</title>
+</head>
+<body>
+
+<h1>Вызов удаленного метода</h1>
+
+<form  method="post">
+    {% csrf_token %}
+    {{ form.as_table }}
+    <button type="submit">Submit</button>
+</form>
+
+{% if request.method == 'POST' %}
+<h3>Endpoint: https://slb.medv.ru{{ url }}</h3>
+<h3>Метод: {{ method }}</h3>
+{% endif %}
+
+<h2>Ответ:</h2>
+
+<p style="border:1px solid">{{ result }}</p>
+
+</body>
+</html>
